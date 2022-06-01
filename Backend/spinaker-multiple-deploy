@@ -1,0 +1,31 @@
+ pipeline {
+
+        environment {
+
+        }
+
+        stages {
+            stage ('Deploy with Spinnaker ') {
+                steps {
+                    script {
+                        def PREFIX_ECR = "ECR_IMAGE_"
+                        def PREFIX_ENV = "Deploy_ENV_"
+
+                        params.each {param ->
+                          if("${param.value}" == "Deploy" ){
+                                println "${param.key}"
+                                VERSION = getProperty(PREFIX_ECR+"${param.key}")
+                                echo getProperty(PREFIX_ECR+"${param.key}")
+                                ENVIRONMENT = getProperty(PREFIX_ENV+"${param.key}")
+                                echo getProperty(PREFIX_ENV+"${param.key}")
+                                DOCKER_TAG=tags["${param.key}"]
+                                echo tags["${param.key}"]
+                                APP_NAME="${param.key}".replace("_","-")
+                                echo "${param.key}".replace("_","-")
+                          }
+                        }
+                    }
+                }
+            }
+        }
+}
