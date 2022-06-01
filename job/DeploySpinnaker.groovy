@@ -14,12 +14,13 @@ public class DeploySpinnaker {
                     def codePart = """
 def hola = "holasdasdasdasdasdasdasd"
 """
-
+                    def dockertag
                     Map<String, String> appstags = new HashMap<>()
                     appstags.put("pasito1", "cms");
                     appstags.put("pasito2", "asc");
                      for (String key : appstags.entrySet()) 
                     {
+                                            dockertag = appstags.get(key)
                                             activeChoiceParam("${key}") {
                                                 description('Selecione si desea desplegar')
                                                 choiceType('CHECKBOX')
@@ -35,7 +36,7 @@ def hola = "holasdasdasdasdasdasdasd"
                                                     script("""
 ${codePart}
 if("${key}"=="Deploy")
-{return getListEcrImages("eu-west-1","${appstags.get(key)}"}
+{return getListEcrImages("eu-west-1","${dockertag}"}
 """)
                                                     fallbackScript('return ["error"]')
                                                 }
