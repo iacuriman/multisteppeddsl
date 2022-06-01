@@ -7,7 +7,7 @@ import java.util.*;
 public class DeploySpinnaker {
 
     static void job(dslFactory, pipelineFile, String jobName) {
-        try {
+        //try {
             dslFactory.pipelineJob(jobName) {
                 parameters {
                     /*
@@ -61,9 +61,9 @@ if("${key}"=="Deploy")
                 }
             }
         }
-        catch (Exception e) {
-            println('Error: ' + e)
-        }
+        //catch (Exception e) {
+        //    println('Error: ' + e)
+       // }
     }
 
 }
