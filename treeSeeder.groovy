@@ -32,6 +32,12 @@ folder(subfolder) {
     displayName(subprojectFolder)
 }
 
+
+ jobFolder = [subfolder, folderName].join('/')
+    folder(jobFolder) {
+        displayName(folderName)
+    }
+
 //NodeCITest SECTION
 try {
     // Checking if the pipeline file exist
