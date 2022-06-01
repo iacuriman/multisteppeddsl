@@ -4,7 +4,7 @@ import javaposse.jobdsl.dsl.*
 import jenkins.model.*
 import java.util.*;
 
-public class DeployECRSpinakerJob {
+public class DeploySpinnaker {
 
     static void job(dslFactory, pipelineFile, String jobName, environments, docker_tag ) {
         try {
