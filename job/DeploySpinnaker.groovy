@@ -2,10 +2,7 @@ package job
 
 import javaposse.jobdsl.dsl.*
 import jenkins.model.*
-import java.util.HashMap;
-//import java.util.Map;
-//import java.util.Iterator;
-//import java.util.Set;
+import java.util.*;
 
 public class DeployECRSpinakerJob {
 
