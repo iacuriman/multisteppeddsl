@@ -36,7 +36,7 @@ def hola = "hola"
                                                     script("""
 
 if("${key}"=="Deploy")
-{return getListEcrImages("eu-west-1",tag)}
+{return getListEcrImages("eu-west-1","asasa")}
 """)
                                                     fallbackScript('return ["error"]')
                                                 }
