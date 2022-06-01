@@ -45,6 +45,7 @@ try {
     pipelineFilePath = [WORKSPACEProject,"Backend","spinaker-multiple-deploy", 'Jenkinsfile'].join('/')
     println pipelineFilePath 
     pipelineFileCI = readFileFromWorkspace(pipelineFilePath)
+    println pipelineFileCI 
     jobName = [jobFolder,'DeploySpinnaker'].join('/')
     DeploySpinnaker.job(this, pipelineFileCI, jobName)
     // Remove jobName of the list to remove
