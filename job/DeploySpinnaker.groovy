@@ -15,7 +15,7 @@ def hola = "hola"
                     def appstags = [pasito1: "cms",
                                 pasito2 : "asc",
                                  ]
-                                for (HashMap.Entry<String, String> APP : appstags.entrySet()) {
+                                for (HashMap.Entry<String, String> APP : appstags.entrySet()) 
                                 {
                                             tag = tags["${APP}"]
                                             activeChoiceParam("${APP}") {
