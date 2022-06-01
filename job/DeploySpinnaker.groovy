@@ -18,31 +18,32 @@ def hola = "holasdasdasdasdasdasdasd"
                     Map<String, String> appstags = new HashMap<>()
                     appstags.put("pasito1", "cms");
                     appstags.put("pasito2", "asc");
-                     for (String key : appstags.entrySet()) 
-                    {
-                                            dockertag = appstags.get(key)
-                                            activeChoiceParam("${key}") {
+                     //for (String key : appstags.entrySet()) 
+                    //{
+                     for (HashMap.Entry<String, String> key : appstags.entrySet()) {
+                                            dockertag = appstags.get(entry.getKey())
+                                            activeChoiceParam("${entry.getKey()}") {
                                                 description('Selecione si desea desplegar')
                                                 choiceType('CHECKBOX')
                                                 groovyScript {
                                                     script("""return ['Deploy']""")
                                                 }
                                             }
-                                            activeChoiceReactiveParam("ECR_IMAGE_"+"${key}") {
+                                            activeChoiceReactiveParam("ECR_IMAGE_"+"${entry.getKey()}") {
                                                 description('Seleccione la imagen del ECR a desplegar')
                                                 filterable()
                                                 choiceType('SINGLE_SELECT')
                                                 groovyScript {
                                                     script("""
 ${codePart}
-if("${key}"=="Deploy")
-{return getListEcrImages("eu-west-1","${dockertag}"}
+if("${entry.getKey()}"=="Deploy")
+{return getListEcrImages("eu-west-1","${entry.getValue()}"}
 """)
                                                     fallbackScript('return ["error"]')
                                                 }
-                                                referencedParameter("${key}")
+                                                referencedParameter("${entry.getKey()}")
                                             }
-                                            activeChoiceParam("Deploy_ENV_"+"${key}") {
+                                            activeChoiceParam("Deploy_ENV_"+"${entry.getKey()}") {
                                                 description('Selecione el entorno a desplegar')
                                                 choiceType('SINGLE_SELECT')
                                                 groovyScript {
