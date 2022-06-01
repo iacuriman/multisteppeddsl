@@ -13,9 +13,10 @@ public class DeployECRSpinakerJob {
                     def codePart = """
 def hola = "hola"
 """
-                    def appstags = [pasito1: "cms",
-                                pasito2 : "asc",
-                                 ]
+                    Map<String, String> appstags = new HashMap<>()
+                    map.put("pasito1", "cms");
+                    map.put("pasito2", "asc");
+
                                 for (HashMap.Entry<String, String> APP : appstags.entrySet()) 
                                 {
                                             tag = tags["${APP}"]
