@@ -10,11 +10,11 @@ public class DeploySpinnaker {
         //try {
             dslFactory.pipelineJob(jobName) {
                 parameters {
-                    /*
+                    
                     def codePart = """
-def hola = "hola"
+def hola = "holasdasdasdasdasdasdasd"
 """
-*/
+
                     Map<String, String> appstags = new HashMap<>()
                     appstags.put("pasito1", "cms");
                     appstags.put("pasito2", "asc");
@@ -34,7 +34,7 @@ def hola = "hola"
                                                 choiceType('SINGLE_SELECT')
                                                 groovyScript {
                                                     script("""
-
+${codePart}
 if("${key}"=="Deploy")
 {return getListEcrImages("eu-west-1","asasa")}
 """)
