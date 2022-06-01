@@ -6,7 +6,7 @@ import java.util.*;
 
 public class DeploySpinnaker {
 
-    static void job(dslFactory, pipelineFile, String jobName, environments, docker_tag ) {
+    static void job(dslFactory, pipelineFile, String jobName) {
         try {
             dslFactory.pipelineJob(jobName) {
                 parameters {
