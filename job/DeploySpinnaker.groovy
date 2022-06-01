@@ -17,31 +17,32 @@ def hola = "hola"
                     map.put("pasito1", "cms");
                     map.put("pasito2", "asc");
 
-                                for (HashMap.Entry<String, String> APP : appstags.entrySet()) 
+                                for (String key : appstags.entrySet()) 
                                 {
-                                            tag = tags["${APP}"]
-                                            activeChoiceParam("${APP}") {
+                                    
+                                            tag = bookMap.get(key)
+                                            activeChoiceParam("${key}") {
                                                 description('Selecione si desea desplegar')
                                                 choiceType('CHECKBOX')
                                                 groovyScript {
                                                     script("""return ['Deploy']""")
                                                 }
                                             }
-                                            activeChoiceReactiveParam("ECR_IMAGE_"+"${APP}") {
+                                            activeChoiceReactiveParam("ECR_IMAGE_"+"${key}") {
                                                 description('Seleccione la imagen del ECR a desplegar')
                                                 filterable()
                                                 choiceType('SINGLE_SELECT')
                                                 groovyScript {
                                                     script("""
 "${codePart}"
-if("${APP}"=="Deploy")
+if("${key}"=="Deploy")
 {return getListEcrImages("eu-west-1","${tag}")}
 """)
                                                     fallbackScript('return ["error"]')
                                                 }
-                                                referencedParameter("${APP}")
+                                                referencedParameter("${key}")
                                             }
-                                            activeChoiceParam("Deploy_ENV_"+"${APP}") {
+                                            activeChoiceParam("Deploy_ENV_"+"${key}") {
                                                 description('Selecione el entorno a desplegar')
                                                 choiceType('SINGLE_SELECT')
                                                 groovyScript {
