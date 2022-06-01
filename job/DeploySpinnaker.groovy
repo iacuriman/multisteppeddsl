@@ -20,7 +20,7 @@ def hola = "hola"
                     appstags.put("pasito2", "asc");
                      for (String key : appstags.entrySet()) 
                     {
- tag = appstags.get(key)
+                                            tag = appstags.get(key)
                                             activeChoiceParam("${key}") {
                                                 description('Selecione si desea desplegar')
                                                 choiceType('CHECKBOX')
@@ -36,7 +36,7 @@ def hola = "hola"
                                                     script("""
 
 if("${key}"=="Deploy")
-{return getListEcrImages("eu-west-1","${tag}")}
+{return getListEcrImages("eu-west-1",tag)}
 """)
                                                     fallbackScript('return ["error"]')
                                                 }
