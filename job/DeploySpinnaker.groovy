@@ -20,7 +20,7 @@ def hola = "hola"
                     appstags.put("pasito2", "asc");
                      for (String key : appstags.entrySet()) 
                     {
-                                            tag = appstags.get(key)
+                                           // tag = appstags.get(key)
                                             activeChoiceParam("${key}") {
                                                 description('Selecione si desea desplegar')
                                                 choiceType('CHECKBOX')
