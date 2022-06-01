@@ -35,7 +35,7 @@ def hola = "holasdasdasdasdasdasdasd"
                                                     script("""
 ${codePart}
 if("${key}"=="Deploy")
-{return getListEcrImages("eu-west-1",appstags.get(key))}
+{return getListEcrImages("eu-west-1",${appstags.get(key))}}
 """)
                                                     fallbackScript('return ["error"]')
                                                 }
