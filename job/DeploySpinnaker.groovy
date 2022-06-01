@@ -16,8 +16,8 @@ def hola = "hola"
 """
 */
                     Map<String, String> appstags = new HashMap<>()
-                    map.put("pasito1", "cms");
-                    map.put("pasito2", "asc");
+                    appstags.put("pasito1", "cms");
+                    appstags.put("pasito2", "asc");
                     println "hola"
                                 
                 }
