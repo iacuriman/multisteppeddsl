@@ -32,7 +32,7 @@ folder(subfolder) {
     displayName(subprojectFolder)
 }
 
-
+folderName= "caracoli"
  jobFolder = [subfolder, folderName].join('/')
     folder(jobFolder) {
         displayName(folderName)
