@@ -43,6 +43,7 @@ try {
     // Checking if the pipeline file exist
     //pipelineFilePath = [pipelinesFolder, repositoryName, 'disable-ci', 'Jenkinsfile'].join('/')
     pipelineFilePath = [WORKSPACEProject,"Backend","spinaker-multiple-deploy", 'Jenkinsfile'].join('/')
+    println pipelineFilePath 
     pipelineFileCI = readFileFromWorkspace(pipelineFilePath)
     jobName = [jobFolder,'DeploySpinnaker'].join('/')
     DeploySpinnaker.job(this, pipelineFileCI, jobName)
