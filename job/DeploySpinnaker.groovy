@@ -18,7 +18,11 @@ def hola = "hola"
                     Map<String, String> appstags = new HashMap<>()
                     appstags.put("pasito1", "cms");
                     appstags.put("pasito2", "asc");
-                    println "hola"
+                     for (String key : appstags.entrySet()) 
+                    {
+
+
+                    }
                                 
                 }
                 definition {
