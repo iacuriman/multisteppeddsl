@@ -15,7 +15,7 @@ public class DeploySpinnaker {
 def hola = "holasdasdasdasdasdasdasd"
 """
                     def dockertag
-                    Map<String, String> appstags = new HashMap<>()
+                    HashMap<String, String> appstags = new HashMap<>()
                     appstags.put("pasito1", "cms");
                     appstags.put("pasito2", "asc");
                      //for (String key : appstags.entrySet()) 
