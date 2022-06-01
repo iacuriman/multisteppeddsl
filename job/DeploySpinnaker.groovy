@@ -19,11 +19,7 @@ def hola = "hola"
                     map.put("pasito1", "cms");
                     map.put("pasito2", "asc");
                     println "hola"
-                                for (String key : appstags.entrySet()) 
-                                {
-                                    
-                                          
-                                }
+                                
                 }
                 definition {
                     cps {
