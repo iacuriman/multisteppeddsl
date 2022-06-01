@@ -20,7 +20,7 @@ def hola = "holasdasdasdasdasdasdasd"
                     appstags.put("pasito2", "asc");
                      //for (String key : appstags.entrySet()) 
                     //{
-                     for (HashMap.Entry<String, String> key : appstags.entrySet()) {
+                     for (Map.Entry<String, String> key : appstags.entrySet()) {
                                             dockertag = appstags.get(entry.getKey())
                                             activeChoiceParam("${entry.getKey()}") {
                                                 description('Selecione si desea desplegar')
