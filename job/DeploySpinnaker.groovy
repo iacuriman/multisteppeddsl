@@ -20,7 +20,7 @@ def hola = "holasdasdasdasdasdasdasd"
                     appstags.put("pasito2", "asc");
                      for (String key : appstags.entrySet()) 
                     {
-                                           // tag = appstags.get(key)
+                                            dockertag = appstags.get(key)
                                             activeChoiceParam("${key}") {
                                                 description('Selecione si desea desplegar')
                                                 choiceType('CHECKBOX')
@@ -36,7 +36,7 @@ def hola = "holasdasdasdasdasdasdasd"
                                                     script("""
 ${codePart}
 if("${key}"=="Deploy")
-{return getListEcrImages("eu-west-1","asasa")}
+{return getListEcrImages("eu-west-1","${dockertag}")}
 """)
                                                     fallbackScript('return ["error"]')
                                                 }
